@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Insane Servis — Servis elektrokoloběžek</title>
+<meta name="description" content="Insane Servis — profesionální, rychlý a bez kompromisů. Servis elektrokoloběžek s vyzvednutím, diagnostikou a expresní opravou. Pekelně dobrý servis." />
+<meta name="theme-color" content="#d4122e" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* --- ZÁKLADNÍ PROMĚNNÉ --- */
+:root{
+  --primary:#d4122e;
+  --primary-2:#fd2f4b;
+  --accent:#7df0ff;
+  --ink:#e9e9ef;
+  --muted:#a7a7b3;
+  --bg-0:#050507;
+  --bg-1:#0a0a0f;
+  --grad-fire: conic-gradient(from 210deg at 50% 50%, #4a070d, #8c0f21, #d4122e, #fd2f4b, #ff8a57, #ffce76, #4a070d);
+}
+
+/* --- RESET --- */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Inter",sans-serif;
+  background:var(--bg-0);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+/* --- LOADING ANIMACE --- */
+#loading-screen{
+  position:fixed;inset:0;
+  background:#000;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  z-index:9999;
+}
+#loading-logo{
+  width:80px;height:80px;
+  background:var(--grad-fire);
+  border-radius:50%;
+  animation:pulse 1.5s infinite;
+  box-shadow:0 0 20px rgba(212,18,46,.6);
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+}
+#loading-text{
+  margin-top:20px;
+  font-family:"Anton";
+  font-size:24px;
+  letter-spacing:1px;
+  color:var(--primary-2);
+}
+
+/* --- HLAVIČKA --- */
+header{
+  position:sticky;top:0;
+  background:rgba(10,10,14,.85);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1200px;margin:auto;padding:10px 20px;
+}
+nav .brand{
+  display:flex;align-items:center;gap:10px;
+  font-family:"Anton";font-size:20px;
+}
+nav ul{display:flex;gap:15px;list-style:none}
+nav a{color:var(--ink);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--primary-2)}
+
+/* --- HERO --- */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  max-width:1200px;margin:auto;padding:60px 20px;
+}
+.hero h1{
+  font-family:"Anton";font-size:60px;line-height:1;
+  background:linear-gradient(180deg,#fff,#fdd,#ff9f9f 60%,#ffc156);
+  -webkit-background-clip:text;color:transparent;
+}
+.hero p{margin-top:15px;color:var(--muted)}
+.hero .cta{
+  display:inline-block;margin-top:20px;
+  padding:10px 20px;border-radius:8px;
+  background:linear-gradient(180deg,var(--primary),var(--primary-2));
+  color:#fff;font-weight:700;text-decoration:none;
+}
+.hero-art{
+  background:radial-gradient(circle at center,rgba(212,18,46,.3),transparent);
+  border-radius:20px;position:relative;overflow:hidden;
+}
+
+/* --- KARTY SLUŽEB --- */
+.services{
+  max-width:1200px;margin:auto;padding:60px 20px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;
+}
+.card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:20px;
+  transition:transform .3s, box-shadow .3s;
+}
+.card:hover{
+  transform:translateY(-5px) scale(1.02);
+  box-shadow:0 0 20px rgba(212,18,46,.4);
+}
+.card h3{margin-bottom:10px}
+
+/* --- RESPONSIVE --- */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:42px}
+}
+
+/* --- FOOTER --- */
+footer{
+  background:rgba(10,10,14,.9);
+  padding:20px;text-align:center;
+  font-size:14px;color:var(--muted);
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loading-screen">
+  <div id="loading-logo"></div>
+  <div id="loading-text">Načítám pekelný servis...</div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <div class="brand">🔥 Insane Servis</div>
+    <ul>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Servis elektrokoloběžek</h1>
+    <p>Pekelně rychlý a profesionální servis. Diagnostika, opravy, upgrady.</p>
+    <a href="#kontakt" class="cta">Rezervovat opravu</a>
+  </div>
+  <div class="hero-art"></div>
+</section>
+
+<!-- SLUZBY -->
+<section id="sluzby" class="services">
+  <div class="card">
+    <h3>⚡ Elektrika & diagnostika</h3>
+    <p>Řešíme kabeláž, baterie, řídící jednotky a další.</p>
+  </div>
+  <div class="card">
+    <h3>🛠 Mechanika & brzdy</h3>
+    <p>Seřízení brzd, výměna ložisek, plášťů a dalších dílů.</p>
+  </div>
+  <div class="card">
+    <h3>🚚 Expres & vyzvednutí</h3>
+    <p>Vyzvedneme v Praze, opravíme a doručíme zpět.</p>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" style="max-width:1200px;margin:auto;padding:60px 20px;">
+  <h2>Kontakt</h2>
+  <p>Email: hello@insaneservis.cz</p>
+  <p>Telefon: +420 777 000 000</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © <span id="year"></span> Insane Servis — Pekelně dobrý servis
+</footer>
+
+<script>
+// Loading animace
+window.addEventListener('load',()=>{
+  document.getElementById('loading-screen').style.display='none';
+});
+// Rok ve footeru
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
